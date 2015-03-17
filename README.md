@@ -1,6 +1,10 @@
 # OpenStackOnNuc
 Configuration files for opendevstack on intel NUC
 
+# Get the stable Juno release of devstack
+
+    git clone https://github.com/openstack-dev/devstack.git -b stable/juno
+
 # Local.conf
 
 Due to the name of the interface its important to set it as em1 on config file.
