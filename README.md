@@ -23,3 +23,12 @@ Change your passwords :)
     RABBIT_PASSWORD=flopsymopsy
     SERVICE_PASSWORD=iheartksl
     SERVICE_TOKEN=xyzpdqlazydog
+    
+# On host machine with devstack allow forwarding and masquerading with
+    iptables -t nat -A POSTROUTING -o br100 -j MASQUERADE
+    
+ip forwarding changes affect on reboot of the NUC
+
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+    echo 1 > /proc/sys/net/ipv4/conf/eth0/proxy_arp
+    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
