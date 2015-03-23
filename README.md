@@ -25,10 +25,20 @@ Change your passwords :)
     SERVICE_TOKEN=xyzpdqlazydog
     
 # On host machine with devstack allow forwarding and masquerading with
-    iptables -t nat -A POSTROUTING -o br100 -j MASQUERADE
-    
+
 ip forwarding changes affect on reboot of the NUC
 
     echo 1 > /proc/sys/net/ipv4/ip_forward
     echo 1 > /proc/sys/net/ipv4/conf/eth0/proxy_arp
-    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+                                     em1
+    iptables -t nat -A POSTROUTING -o br100 -j MASQUERADE
+    
+# When using Centos
+
+Disable or open ports INSIDE the vm with iptables. EX open 8080
+    
+    sudo iptables -I INPUT 5 -i eth0 -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+save the iptables for reboots.
+
+    service iptables save
