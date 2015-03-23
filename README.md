@@ -42,3 +42,8 @@ Disable or open ports INSIDE the vm with iptables. EX open 8080
 save the iptables for reboots.
 
     service iptables save
+    
+Disable requiretty to particular user not to use tty.
+    $ sudo /usr/sbin/visudo
+
+    Defaults:username !requiretty
