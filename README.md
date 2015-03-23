@@ -59,9 +59,3 @@ add iptables port
 
     sudo iptables -I INPUT 5 -i eth0 -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT
     service iptables save
-
-add no requiretty
-    
-    $ sudo /usr/sbin/visudo
-
-    Defaults:username !requiretty
