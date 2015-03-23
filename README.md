@@ -57,5 +57,9 @@ start mongod
     
 add iptables port
 
-    sudo iptables -I INPUT 5 -i eth0 -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT
+    sudo iptables -I INPUT 5 -i eth0 -p tcp --dport 1026 -m state --state NEW,ESTABLISHED -j ACCEPT
     service iptables save
+
+start contextBroker
+
+    sudo contextBroker -port 1026
