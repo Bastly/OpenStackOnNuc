@@ -44,6 +44,24 @@ save the iptables for reboots.
     service iptables save
     
 Disable requiretty to particular user not to use tty.
+    
+    $ sudo /usr/sbin/visudo
+
+    Defaults:username !requiretty
+    
+If using the contextBroker image, stepst to be made:
+
+start mongod
+
+    sudo service mongod start
+    
+add iptables port
+
+    sudo iptables -I INPUT 5 -i eth0 -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT
+    service iptables save
+
+add no requiretty
+    
     $ sudo /usr/sbin/visudo
 
     Defaults:username !requiretty
