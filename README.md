@@ -35,9 +35,9 @@ ip forwarding changes affect on reboot of the NUC
     
 # When using Centos
 
-Disable or open ports INSIDE the vm with iptables. EX open 8080
+Disable or open ports INSIDE the vm with iptables. EX open 1026
     
-    sudo iptables -I INPUT 5 -i eth0 -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT
+    sudo iptables -I INPUT 5 -i eth0 -p tcp --dport 1026 -m state --state NEW,ESTABLISHED -j ACCEPT
 
 save the iptables for reboots.
 
