@@ -63,3 +63,16 @@ add iptables port
 start contextBroker
 
     sudo contextBroker -port 1026
+    
+#If stack goes down restablish with
+
+https://opensource.ncsa.illinois.edu/confluence/display/BD/Persist+DevStack+After+Host+Reboot
+
+    retain the DevStack configurations across rebooting of a hosting machine. Do:
+    Run "./unstack.sh".
+    This cleanly stops the stack services and screen processes.
+    Reboot the machine.
+    Manually start the RabbitMQ server.
+    Somehow the RabbitMQ server is not automatically started. Do "sudo service rabbitmq-server start".  Then do        "sudo service rabbitmq-server status" to verify that it is started successfully.
+    Run "./rejoin-stack.sh", do NOT use "./stack.sh" to start the stack.
+    This will use the "stack-screenrc" file, restart the stack, and keep all the configurations that have been         made, such as uploaded images, VM instances in suspended (or shelved, but Rui did not test the shelved state)     state, and uploaded key pairs. (sonrisa) For example, the VM instances can be seen both in the "nova list"         result and the web UI, and "nova resume ..." of suspended VM instances work.
