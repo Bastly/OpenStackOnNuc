@@ -1,9 +1,25 @@
 # OpenStackOnNuc
 Configuration files for opendevstack on intel NUC
 
+Install x64 ubuntu server
+
+We need to add a user to install DevStack. (if you created a user during install you can skip this step and just give the user sudo privileges below)
+
+adduser stack
+
+apt-get install sudo -y || yum install -y sudo
+echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+if echo does not work use tee to add stack to sudoers or use visudo
+logout and login with that user.
+
 # Get the stable Juno release of devstack
 
     git clone https://github.com/openstack-dev/devstack.git -b stable/juno
+
+# Get into de folder and install
+
+    ./stack.sh
 
 # Local.conf
 
@@ -23,6 +39,8 @@ Change your passwords :)
     RABBIT_PASSWORD=flopsymopsy
     SERVICE_PASSWORD=iheartksl
     SERVICE_TOKEN=xyzpdqlazydog
+    
+
     
 # On host machine with devstack allow forwarding and masquerading with
 
