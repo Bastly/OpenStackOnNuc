@@ -17,9 +17,7 @@ logout and login with that user.
 
     git clone https://github.com/openstack-dev/devstack.git -b stable/juno
 
-# Get into de folder and install
 
-    ./stack.sh
 
 # Local.conf
 
@@ -40,7 +38,9 @@ Change your passwords :)
     SERVICE_PASSWORD=iheartksl
     SERVICE_TOKEN=xyzpdqlazydog
     
+# Get into de folder and install
 
+    ./stack.sh
     
 # On host machine with devstack allow forwarding and masquerading with
 
